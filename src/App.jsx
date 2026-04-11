@@ -13,42 +13,42 @@ import RoadmapDSA from './Pages/RoadmapDSA'
 import RoadmapProgramming from './Pages/RoadmapProgramming'
 import RoadmapCloud from './Pages/RoadmapCloud'
 
+import Gallery from './Pages/Gallery'
+import ContactUs from './Pages/ContactUs'
+
 function Home() {
   return (
-    /* This single DIV wraps everything */
-    <div className="flex flex-col min-h-screen w-full bg-black overflow-x-hidden">
-
-      <Header />
-
-      {/* Main content area */}
-      <main className="grow">
-        <Hero />
-        <Why />
-        <Impact />
-        <RoadmapsGrid />
-      </main>
-
-      <Footer />
-
-    </div>
+    <>
+      <Hero />
+      <Why />
+      <Impact />
+      <RoadmapsGrid />
+    </>
   )
 }
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/roadmaps" element={<Outlet />}>
-          <Route path="webdev" element={<RoadmapWebDev />} />
-          <Route path="aiml" element={<RoadmapAIML />} />
-          <Route path="cloud" element={<RoadmapCloud />} />
-          <Route path="programming" element={<RoadmapProgramming />} />
-          <Route path="dsa" element={<RoadmapDSA />} />
-        </Route>
-      </Routes>
-
-    </BrowserRouter>
+      <div className="relative w-full bg-black overflow-x-hidden">
+        <Header />
+        <main className="relative z-10 w-full bg-black shadow-[0_50px_50px_rgba(0,0,0,0.5)] mb-[60vh] md:mb-[65vh]">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/roadmaps" element={<Outlet />}>
+            <Route path="webdev" element={<RoadmapWebDev />} />
+            <Route path="aiml" element={<RoadmapAIML />} />
+            <Route path="cloud" element={<RoadmapCloud />} />
+            <Route path="programming" element={<RoadmapProgramming />} />
+            <Route path="dsa" element={<RoadmapDSA />} />
+          </Route>
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+    </BrowserRouter >
   )
 }
 
